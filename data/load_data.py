@@ -11,15 +11,18 @@ class DataLoader:
     def __init__(self):
         pass
 
-    def load_all_three_dfs(self, train_size, val_size, test_size):
+    def load_all_three_dfs(self, train_size=None, val_size=None, test_size=None):
+        
+        train_df = self.load_data_df("random_split/train")
+        test_df = self.load_data_df("random_split/test")
+        val_df = self.load_data_df("random_split/dev")
 
-        train_df = self.load_data_df("random_split/train").sample(
-            train_size, random_state=1
-        )
-        test_df = self.load_data_df("random_split/test").sample(
-            test_size, random_state=1
-        )
-        val_df = self.load_data_df("random_split/dev").sample(val_size, random_state=1)
+        if train_size:
+            train_df = train_df.sample(train_size, random_state=1)
+        if test_size:
+            test_df = test_df.sample(test_size, random_state=1)
+        if val_size:
+            val_df = val_df.sample(val_size, random_state=1)
 
         return train_df, val_df, test_df
 
