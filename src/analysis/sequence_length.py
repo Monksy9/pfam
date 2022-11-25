@@ -6,6 +6,8 @@ pd.set_option("display.float_format", lambda x: "%.3f" % x)
 
 
 class SequenceLengthExplorer:
+    """Explorer object for reading in dataframes and creating plots relevant to sequence length."""
+
     def __init__(self, set_of_dfs: set, fold_names: str, top_n_families: int):
         self.list_of_dfs = list(map(self._create_sequence_length_column, set_of_dfs))
         self.fold_names = fold_names
@@ -29,7 +31,9 @@ class SequenceLengthExplorer:
         top_n_long_families_list = list(
             long_sequences["family_id"].value_counts().head(self.top_n_families).index
         )
-        top_n_df = long_sequences[long_sequences["family_id"].isin(long_sequences)]
+        top_n_df = long_sequences[
+            long_sequences["family_id"].isin(top_n_long_families_list)
+        ]
         fig, ax = plt.subplots(1, 1, figsize=(30, 10))
         sns.histplot(
             data=top_n_df, x="sequence_length", hue="family_id", ax=ax, multiple="stack"

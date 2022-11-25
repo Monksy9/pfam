@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.style as style
 import numpy as np
 import pandas as pd
-import sequence_length as sl
+
+import src.analysis.sequence_length as sl
 
 style.use("seaborn-poster")
 style.use("ggplot")

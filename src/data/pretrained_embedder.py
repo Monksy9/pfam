@@ -19,6 +19,15 @@ class PretrainedEmbedder:
         self.sequence_length = sequence_length
 
     def embed_sequences(self, input_df: pd.DataFrame):
+        """
+        Given an input dataframe, with the column "sequence" this will created the embeddings for a pretrained embedder from biotransformers
+
+        Args:
+            input_df (pd.DataFrame): input dataframe containing sequence column.
+
+        Returns:
+            _type_: dataframe containing embeddings, target and sequence.
+        """
         sequences_truncated = input_df["sequence"].apply(
             lambda x: x[0 : self.sequence_length + 1]
         )

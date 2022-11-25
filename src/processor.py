@@ -1,14 +1,14 @@
-import pretrained_embedder as pe
-import pct_embedder as pct_e
+import src.data.pretrained_embedder as pe
+import src.data.pct_embedder as pct_e
 import os
-import load_data as ld
+import src.data.load_data as ld
 import pandas as pd
 import shutil
 
 
 class Embedder:
     """
-    Appies Embedders to amino acid input sequences containing .embed_input_sequences and unload their output locally.
+    Applies Embedders to amino acid input sequences containing .embed_input_sequences and unload their output locally.
     """
 
     def __init__(
@@ -31,6 +31,19 @@ class Embedder:
         self.num_gpus = num_gpus
 
     def embed_input_sequences(self, embedder_name):
+        """For a given embedder name from ["pct_embedder", "esm1_t6_43M_UR50S", "protbert"] read and embed input sequences.
+
+        Args:
+            embedder_name (_type_): name of embedder method.
+
+        Raises:
+            Exception: if incorrect embedder name
+
+        Returns:
+            _type_: train_df, val_df, test_df of embeddings.
+        """
+
+        assert embedder_name in ["pct_embedder", "esm1_t6_43M_UR50S", "protbert"]
 
         if "esm1" in embedder_name or "bert" in embedder_name:
             print("Using bio-transformers library for:" + str(embedder_name))
@@ -62,6 +75,17 @@ class Embedder:
         return train_embeddings_df, val_embeddings_df, test_embeddings_df
 
     def embed_and_unload(self, embedder_name):
+        """For a given embedder name from ["pct_embedder", "esm1_t6_43M_UR50S", "protbert"] read and embed input sequences, then output to CSV in embeddings/
+
+        Args:
+            embedder_name (_type_): name of embedder method.
+
+        Raises:
+            Exception: if incorrect embedder name
+
+        Returns:
+            _type_: train_df, val_df, test_df of embeddings."""
+
         embed_train, embed_test, embed_val = self.embed_input_sequences(embedder_name)
         embedding_path = "embeddings/" + str(embedder_name) + "/"
 
