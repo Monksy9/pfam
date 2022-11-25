@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class SimpleEmbedder():
+class SimpleEmbedder:
     """
     Takes a list of embeddings and returns the percentage of each amino acid
     """
@@ -21,9 +21,9 @@ class SimpleEmbedder():
                 lambda x: x.count(acid) / len(x)
             )
         df = pd.DataFrame(dict_of_percentages)
-        
+
         combined_df = pd.concat(
-            [input_df[["sequence", "family_id"]], df],
+            [input_df[["sequence", "family_accession"]], df],
             axis=1,
         )
         return combined_df
