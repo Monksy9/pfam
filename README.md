@@ -11,7 +11,7 @@ Definitions:
 * Sequence name: This is the name given to the sequence, form: "$uniprotaccessionid/$startindex-$end_index"
 
 Steps:
-* Setup conda environment using environemnt.yml and select in notebook pfam_model.ipynb
+* Setup conda environment using environment.yml and select in notebook pfam_model.ipynb
 * This can be done by going to the directory with the environent.yml and running:
 ```
 conda env create -f environment.yml -n pfam_env
