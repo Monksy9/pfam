@@ -1,6 +1,6 @@
 # Pfam Seed Random Split
 
-# !! please read and focus on the notebook in the home directory !!
+* !! please read and focus on the notebook in the home directory !!
 
 Dataset url: https://www.kaggle.com/datasets/googleai/pfam-seed-random-split
 
