@@ -1,5 +1,7 @@
 # Pfam Seed Random Split
 
+# !! please read and focus on the notebook in the home directory !!
+
 Dataset url: https://www.kaggle.com/datasets/googleai/pfam-seed-random-split
 
 I have locally saved the raw data in the random_split/ it is partitioned into the three folds as per the initial dataset.
