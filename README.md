@@ -1,6 +1,6 @@
-# Pfam Seed Random Split
+# Protein Language Modelling
 
-Goal of this notebook is to classify protein domains from their amino acid sequences. 
+Goal of this notebook is to classify protein domains from their amino acid sequences using STOA protein language models.
 
 [Main Notebook link](https://github.com/Monksy9/pfam/blob/main/pfam_model.ipynb)
 
