@@ -1,5 +1,9 @@
 # Pfam Seed Random Split
 
+Goal of this notebook is to classify protein domains from their amino acid sequences. 
+
+[Main Notebook link](https://github.com/Monksy9/pfam/blob/main/pfam_model.ipynb)
+
 Dataset url: https://www.kaggle.com/datasets/googleai/pfam-seed-random-split
 
 I have locally saved the raw data in the random_split/ it is partitioned into the three folds as per the initial dataset.
